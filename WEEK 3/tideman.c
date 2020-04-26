@@ -12,7 +12,7 @@ typedef struct
 }
 pair;
 
-
+//create possible pairs of candidates
 pair pairs[MAX * (MAX - 1) / 2];
 int pair_count;
 
@@ -108,7 +108,7 @@ bool vote(int rank, string name, int ranks[])
     return false;
 }
 
-
+//Set ranks in preferences as per voter submitted
 void record_preferences(int ranks[])
 {
     for (int i = 0; i < candidate_count ; i++)
@@ -120,6 +120,7 @@ void record_preferences(int ranks[])
     }
 }
 
+//Add pairs and set winner, loser
 void add_pairs(void)
 {
     for (int i = 0; i < candidate_count; i++)
@@ -150,11 +151,13 @@ int comparator(const void *a, const void *b)
     return (preferences[orderB->winner][orderB->loser] - preferences[orderA->winner][orderA->loser]);
 }
 
+//sort pairs 
 void sort_pairs(void)
 {
     qsort(pairs, pair_count, sizeof(pair), comparator);
 }
 
+//Validate the lock
 void validateLock(int j)
 {
     if (j == 0)
@@ -211,7 +214,7 @@ void lock_pairs(void)
     }
 }
 
-
+//Print winner
 void print_winner(void)
 {
     int winner;
