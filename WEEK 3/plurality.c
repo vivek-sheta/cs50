@@ -2,7 +2,8 @@
 #include <stdio.h>
 #include <string.h>
 
-#define MAX 9    //max candidates
+//max candidates
+#define MAX 9   
 
 typedef struct
 {
@@ -11,7 +12,8 @@ typedef struct
 }
 candidate;
 
-candidate candidates[MAX];  //create array of struct candidate
+//create array of struct candidate
+candidate candidates[MAX];
 int candidate_count;
 
 bool vote(string name);
@@ -35,7 +37,9 @@ int main(int argc, string argv[])
 
     int voters;
     string v;
-    for(int i=0; i < candidate_count; i++) //put command line value in candidates global array
+    
+    //put command line value in candidates global array
+    for(int i=0; i < candidate_count; i++)
     {
     	candidates[i].name = argv[i+1];
     	candidates[i].votes = 0;
