@@ -32,6 +32,7 @@ int main(int argc, char *argv[])
 
     while (true)
     {
+        // size_t is return data type by fopen which contains size of read data
         size_t bytesRead = fread(buffer, sizeof(BYTE), BLOCK_SIZE, inptr);
 
         // Check end of file and exit loop
@@ -39,22 +40,18 @@ int main(int argc, char *argv[])
         {
             break;
         }
-
         // Check JPEG header
         bool isJPEG = buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0) == 0xe0;
 
-        if (isJPEG && (outfile != NULL))
-        {
-            fclose(outfile);
-            imageCount++;
-        }
-
         if (isJPEG)
         {
-            sprintf(filename, "%03i.jpg", imageCount);
+            if (outfile != NULL)
+            {
+                fclose(outfile);
+            }
+            sprintf(filename, "%03i.jpg", imageCount++);
             outfile = fopen(filename, "w");
         }
-
         if (outfile != NULL)
         {
             fwrite(buffer, sizeof(BYTE), bytesRead, outfile);
