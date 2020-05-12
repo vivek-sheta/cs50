@@ -59,7 +59,7 @@ unsigned int hash(const char *word)
 bool load(const char *dictionary)
 {
     FILE *dic = fopen(dictionary, "r");
-    char word[LENGTH+1];
+    char word[LENGTH + 1];
     int bucket;
 
     if (dic == NULL)
