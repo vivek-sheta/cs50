@@ -16,7 +16,7 @@ typedef struct node
 }
 node;
 
-const unsigned int N = 26;
+const unsigned int N = 26 * 26;
 
 // Hash table size 26 (0-25)
 struct node *table[N];
@@ -48,8 +48,13 @@ bool check(const char *word)
 unsigned int hash(const char *word)
 {
     int sum = 0;
-    for (int i = 0; word[i] != '\0'; i++)
+    int count = 0;
+    for (int i = 0; word[i] != '\0'; i++, count++)
     {
+        if(count == 2)
+        {
+            break;
+        }
         sum += toupper(word[i]);
     }
     return sum % N;
