@@ -16,7 +16,7 @@ typedef struct node
 }
 node;
 
-const unsigned int N = 26 * 26;
+const unsigned int N = 26;
 
 // Hash table size 26 (0-25)
 struct node *table[N];
