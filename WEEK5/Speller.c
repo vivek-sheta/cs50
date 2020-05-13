@@ -48,13 +48,8 @@ bool check(const char *word)
 unsigned int hash(const char *word)
 {
     int sum = 0;
-    int count = 0;
-    for (int i = 0; word[i] != '\0'; i++, count++)
+    for (int i = 0; word[i] != '\0'; i++)
     {
-        if(count == 2)
-        {
-            break;
-        }
         sum += toupper(word[i]);
     }
     return sum % N;
