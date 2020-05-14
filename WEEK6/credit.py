@@ -5,14 +5,11 @@ def main():
     card_number = get_int("Number: ")
 
     while card_number < 0:
-        print("Invalid card number")
         card_number = get_int("Number: ")
 
     if check_sum(card_number):
-        print("INSIDE MAIN AND CHECK CARD NUMBER")
         print(f"{card_type(card_number)}")
     else:
-        print("MAIN INVALID")
         print("INVALID")
 
 
@@ -23,9 +20,7 @@ def check_sum(number):
     isOdd = True
     length = len(str(number))
 
-    print(f"{length}")
     if length < 12 or length > 17:
-        print(f"{length}")
         return False
     else:
         while number < 0:
@@ -41,10 +36,8 @@ def check_sum(number):
             number //= 10
 
     if (sum_odd + sum_even) % 10 == 0:
-        print("RETURN TRUE")
         return True
     else:
-        print("RETURN FALSE")
         return False
 
 
@@ -75,6 +68,5 @@ def card_type(number):
         return "INVALID"
 
     return "INVALID"
-
 
 main()
