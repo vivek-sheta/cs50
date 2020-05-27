@@ -34,14 +34,13 @@ def main():
     if len(argv) != 3:
         print("Usage: python dna.py  data.csv  sequense.txt")
         exit(1)
-
+        
     csv_file_path = argv[1]
-
     # if Error in open csv_file_path python interpreter will close the file
     with open(csv_file_path) as csv_file:
         reader = csv.reader(csv_file)
         all_sequences = next(reader)[1:]
-
+        
     text_file_path = argv[2]
     with open(text_file_path) as txt_file:
         s = txt_file.read()
